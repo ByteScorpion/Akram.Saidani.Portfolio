@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akram Saidani - Data Scientist / Data Analyst | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0A0A0A',      
+                        'brand-elevated': '#111111',    
+                        'brand-primary': '#FFFFFF',    
+                        'brand-secondary': '#B3B3B3',  
+                        'brand-light': '#F5F5F5',      
+                        'brand-muted': '#9E9E9E',      
+                        'neon-blue': '#00D9FF',
+                        'neon-purple': '#8B5CF6',
+                        'neon-pink': '#F472B6',
+                        'neon-green': '#10B981',
+                        'neon-orange': '#F59E0B',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+                        'bounce-slow': 'bounceHorizontal 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 10px #8B5CF6, 0 0 20px #8B5CF6, 0 0 30px #A78BFA' },
+                            'to': { boxShadow: '0 0 20px #A78BFA, 0 0 30px #A78BFA, 0 0 40px #8B5CF6' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        bounceHorizontal: {
+                            '0%, 100%': { transform: 'translateX(0px)' },
+                            '50%': { transform: 'translateX(10px)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-dark: #0A0A0A;
+            --bg-elevated: #111111;
+            --text-light: #FAFAFA;
+            --text-muted: #BDBDBD;
+            --accent-primary: #FFFFFF;
+            --accent-secondary: #E0E0E0;
+            --accent-ambient: #1A1A1A;
+            --border-muted: rgba(255, 255, 255, 0.12);
+            --border-strong: rgba(255, 255, 255, 0.28);
+            --glass-bg: rgba(17, 17, 17, 0.7);
+            --glass-hover: rgba(17, 17, 17, 0.85);
+            --ring: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+            --neon-blue: #00D9FF;
+            --neon-purple: #8B5CF6;
+            --neon-pink: #F472B6;
+            --neon-green: #10B981;
+            --neon-orange: #F59E0B;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #0a0a0a 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            overflow-x: hidden;
+            cursor: auto;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(1200px 600px at 20% -10%, rgba(0, 217, 255, 0.15), transparent 60%),
+                radial-gradient(1000px 500px at 80% 110%, rgba(139, 92, 246, 0.12), transparent 60%),
+                radial-gradient(800px 400px at 70% -20%, rgba(244, 114, 182, 0.10), transparent 50%),
+                radial-gradient(600px 300px at 30% 120%, rgba(16, 185, 129, 0.08), transparent 60%);
+            opacity: 0.8;
+            animation: gradientShift 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        html, body { cursor: auto; }
+        a, button, .magnetic-btn, .project-card, .card-3d, .hero-image-container, .nav-underline { cursor: pointer; }
+        a, button, .magnetic-btn, .project-card, .card-3d, .hero-image-container, .nav-underline {
+            -webkit-user-select: none; user-select: none;
+        }
+        
+        .cursor {
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(0, 217, 255, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            will-change: transform, width, height, border, background-color;
+            mix-blend-mode: difference;
+            opacity: 0;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            will-change: transform, width, height, background-color;
+            opacity: 0;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+        }
+        
+        .cursor.hover { 
+            opacity: 1; 
+            border-color: var(--neon-pink); 
+            box-shadow: 0 0 30px rgba(244, 114, 182, 0.6);
+        }
+        .cursor-follower.hover { opacity: 1; }
+        
+        .cursor.click { 
+            transform: translate(-50%, -50%) scale(1.2); 
+            border-color: var(--neon-green);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
+        }
+
+        .section-padding {
+            padding: 100px 24px;
+        }
+
+        
+        .hero-title, .hero-subtitle, .hero-bio, .hero-buttons, .hero-image {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .hero-title { transition-delay: 0.2s; }
+        .hero-subtitle { transition-delay: 0.4s; }
+        .hero-bio { transition-delay: 0.6s; }
+        .hero-buttons { transition-delay: 0.8s; }
+        .hero-image { transition-delay: 1s; }
+
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            background-size: 300% 300%;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            box-shadow: 
+                0 0 20px rgba(0, 217, 255, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            animation: gradientShift 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 217, 255, 0.4),
+                0 0 30px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)) 1;
+            color: var(--text-light);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--bg-dark);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 30px rgba(0, 217, 255, 0.3),
+                0 0 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+
+        
+        .modal {
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+        }
+        
+        .modal-content {
+            animation: modalSlideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(16, 33, 62, 0.9));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.9) translateY(-20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) translateY(0); 
+            }
+        }
+        
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-purple) 25%, 
+                var(--neon-pink) 50%, 
+                var(--neon-green) 75%, 
+                var(--neon-orange) 100%);
+            opacity: 0.1;
+            border-radius: 10px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--neon-blue), 
+                var(--neon-purple), 
+                var(--neon-pink));
+            background-size: 200% 100%;
+            border-radius: 10px;
+            width: 0;
+            transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: gradientShift 4s ease-in-out infinite;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shimmer 2s linear infinite;
+        }
+        
+       
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-purple) 50%, 
+                var(--neon-pink) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.6);
+            animation: pulse-slow 3s infinite;
+        }
+        
+        
+        .testimonial-carousel {
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            flex: 0 0 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonial {
+                flex: 0 0 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .testimonial {
+                flex: 0 0 33.333%;
+            }
+        }
+        
+       
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        
+       
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-blue);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+        
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            background: linear-gradient(145deg, 
+                rgba(26, 26, 46, 0.8), 
+                rgba(16, 33, 62, 0.6));
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, 
+                rgba(0, 217, 255, 0.1), 
+                rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(0, 217, 255, 0.3);
+            border-color: var(--neon-blue);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-card:hover::after {
+            left: 100%;
+        }
+
+        
+        .hero-image-container {
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+        }
+        
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: conic-gradient(
+                var(--neon-blue) 0deg, 
+                var(--neon-purple) 120deg, 
+                var(--neon-pink) 240deg, 
+                var(--neon-blue) 360deg);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: spin 8s linear infinite;
+            filter: blur(20px);
+        }
+        
+        .hero-image-container:hover { 
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05); 
+        }
+        
+        .hero-image {
+            transition: all 0.6s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 2;
+        }
+        
+        
+        .content-card {
+            background: linear-gradient(145deg, 
+                rgba(26, 26, 46, 0.7), 
+                rgba(16, 33, 62, 0.5));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, 
+                rgba(0, 217, 255, 0.05), 
+                rgba(139, 92, 246, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(0, 217, 255, 0.2);
+            border-color: var(--neon-purple);
+        }
+
+        .content-card:hover::before {
+            opacity: 1;
+        }
+
+        .content-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--neon-blue), 
+                var(--neon-purple), 
+                var(--neon-pink));
+            opacity: 0;
+            transform: scaleX(0.3);
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+
+        .content-card:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+       
+        .gradient-text {
+            background: linear-gradient(135deg, 
+                #ffffff 0%, 
+                var(--neon-blue) 25%, 
+                var(--neon-purple) 50%, 
+                var(--neon-pink) 75%, 
+                #ffffff 100%);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        
+        
+        .nav-underline {
+            position: relative;
+        }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+        }
+        
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+
+       
+        .floating { 
+            animation: float 6s ease-in-out infinite; 
+        }
+        
+       
+        .magnetic-btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+        
+        .magnetic-btn:hover { 
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        
+        .bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            background: radial-gradient(circle, var(--neon-blue), transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(2n) {
+            background: radial-gradient(circle, var(--neon-purple), transparent 70%);
+            animation-delay: -2s;
+        }
+        
+        .shape:nth-child(3n) {
+            background: radial-gradient(circle, var(--neon-pink), transparent 70%);
+            animation-delay: -4s;
+        }
+
+      
+        .scroll-indicator {
+            color: var(--neon-blue);
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+            animation: bounce-slow 2s infinite;
+        }
+
+        
+        .tool-icon {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .tool-icon:hover {
+            transform: translateY(-5px) scale(1.1) rotateY(10deg);
+            filter: drop-shadow(0 10px 20px rgba(0, 217, 255, 0.3));
+        }
+
+      
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        
+        footer {
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.95) 0%, 
+                rgba(26, 26, 46, 0.9) 100%);
+            backdrop-filter: blur(20px);
+        }
+
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-light antialiased font-sans">
+    
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    
+    <div class="page-transition"></div>
+
+  
+    <div class="bg-shapes -z-10">
+        <div class="shape w-72 h-72 -top-36 -left-36 floating"></div>
+        <div class="shape w-96 h-96 -bottom-48 -right-48 floating"></div>
+        <div class="shape w-64 h-64 top-1/4 left-1/2 floating"></div>
+        <div class="shape w-80 h-80 bottom-1/4 right-1/3 floating"></div>
+    </div>
+
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <a href="#accueil" class="text-3xl font-handwriting gradient-text magnetic-btn pr-2">Akram Saidani</a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#a-propos" class="text-brand-muted hover:text-neon-blue transition-all duration-300 nav-underline">À propos</a>
+                <a href="#competences" class="text-brand-muted hover:text-neon-purple transition-all duration-300 nav-underline">Compétences</a>
+                <a href="#projets" class="text-brand-muted hover:text-neon-pink transition-all duration-300 nav-underline">Projets</a>
+                <a href="#experience" class="text-brand-muted hover:text-neon-green transition-all duration-300 nav-underline">Expérience</a>
+                <a href="#contact" class="text-brand-muted hover:text-neon-orange transition-all duration-300 nav-underline">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none magnetic-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-brand-dark/90 backdrop-blur-lg z-40 transition-transform duration-300 transform -translate-y-full md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#a-propos" class="text-3xl font-bold hover:text-neon-blue transition-colors duration-300 gradient-text" onclick="toggleMobileMenu()">À propos</a>
+            <a href="#competences" class="text-3xl font-bold hover:text-neon-purple transition-colors duration-300 gradient-text" onclick="toggleMobileMenu()">Compétences</a>
+            <a href="#projets" class="text-3xl font-bold hover:text-neon-pink transition-colors duration-300 gradient-text" onclick="toggleMobileMenu()">Projets</a>
+            <a href="#experience" class="text-3xl font-bold hover:text-neon-green transition-colors duration-300 gradient-text" onclick="toggleMobileMenu()">Expérience</a>
+            <a href="#contact" class="text-3xl font-bold hover:text-neon-orange transition-colors duration-300 gradient-text" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </div>
+
+    <main>
+        <section id="accueil" class="min-h-screen flex items-center justify-center relative overflow-hidden interactive-bg">
+             
+            <div class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between relative z-10">
+                <div class="w-full md:w-1/2 md:pr-12 flex flex-col items-center md:items-start text-center md:text-left">
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 hero-title tracking-tighter font-handwriting gradient-text pr-2">
+                        Hello, I'm Akram Saidani
+                    </h1>
+                    <p class="text-3xl md:text-4xl text-neon-blue font-semibold mb-6 hero-subtitle typewriter">
+                        Data Scientist / Data Analyst
+                    </p>
+                    <p class="text-xl md:text-2xl max-w-2xl mx-auto md:mx-0 text-brand-muted mb-8 hero-bio">
+                        Étudiant en Master 2 Mathématiques et Applications, à la recherche d’un stage dans le domaine de la Data.  
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 hero-buttons">
+                        <a href="#projets" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 flex items-center justify-center magnetic-btn">
+                            <span>Voir mes projets</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 flex items-center justify-center magnetic-btn">
+                            <span>Me contacter</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 mt-16 md:mt-0 md:pl-12 relative z-10 hero-image">
+                    <div class="relative hero-image-container">
+                        <div class="absolute -inset-4 rounded-full opacity-40" style="background: radial-gradient(closest-side, rgba(96,165,250,0.12), rgba(34,211,238,0.06), transparent 65%);"></div>
+                        <img src="files\Akram.jpg" 
+                             alt="Photo de Akram Saidani" 
+                             class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full object-cover shadow-2xl relative z-10 border-4 border-brand-elevated parallax-img hero-image"
+                             style="box-shadow: 0 0 0 3px rgba(0,217,255,0.3), 0 0 0 6px rgba(139,92,246,0.2), 0 0 50px rgba(0,217,255,0.4);">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce scroll-indicator">
+            <a href="#a-propos" class="text-neon-blue hover:text-neon-purple transition-colors duration-300 magnetic-btn">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="a-propos" class="section-padding animate-on-scroll interactive-bg">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white tracking-tighter gradient-text">À propos de moi</h2>
+                <p class="text-xl text-center mb-16 text-gray-400 max-w-3xl mx-auto">Découvrez mon parcours, ma passion pour les données et ma vision de l'analyse</p>
+                
+                <div class="flex justify-center">
+                    <div class="w-full lg:w-4/5 text-center">
+                        <h3 class="text-2xl font-bold mb-6 text-white gradient-text">Qui suis-je ?</h3>
+                        <p class="text-lg leading-relaxed text-brand-muted mb-6">
+                            Titulaire d’un Master 2 en Statistiques et Data Science et actuellement en Master 2 Mathématiques et Applications à l’Université Paris-Saclay, je suis intéressée par l’analyse de données, la vision par ordinateur et le NLP. J’ai acquis une expérience pratique en modélisation statistique, apprentissage automatique et entraînement de modèles de Deep Learning, renforcée par les certifications en Machine Learning (Stanford) et Google Data Analytics
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex items-start content-card p-4">
+                                <div class="bg-neon-blue/20 text-neon-blue p-3 rounded-full mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Data-driven</h4>
+                                    <p class="text-brand-muted text-sm">Approche centrée sur l'analyse de données pour la prise de décision.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start content-card p-4">
+                                <div class="bg-neon-purple/20 text-neon-purple p-3 rounded-full mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v18"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 17h4.374a2 2 0 001.696-.86l2.353-3.644a1 1 0 00-.86-1.57h-3.32a1 1 0 01-.86-.5l-1.39-2.22a1 1 0 00-.86-.5h-3.32a1 1 0 01-.86-.5L7.962 5.5a1 1 0 00-.86-1.57H4.374a2 2 0 01-1.696-.86L.325 1.5M12 21V3"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Résolution de problèmes</h4>
+                                    <p class="text-brand-muted text-sm">Passionné par la transformation de défis complexes en solutions claires.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start content-card p-4">
+                                <div class="bg-neon-pink/20 text-neon-pink p-3 rounded-full mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Curiosité sans fin</h4>
+                                    <p class="text-brand-muted text-sm">Toujours à l'affût des nouvelles technologies et méthodologies.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start content-card p-4">
+                                <div class="bg-neon-green/20 text-neon-green p-3 rounded-full mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v4M12 10V6"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Collaboration</h4>
+                                    <p class="text-brand-muted text-sm">J'apprécie le travail d'équipe et le partage d'idées pour innover.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="files\cv.pdf" target="_blank" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 flex items-center justify-center magnetic-btn max-w-[250px] mx-auto">
+                                <span>Télécharger mon CV</span>
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="section-padding animate-on-scroll interactive-bg">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white tracking-tighter gradient-text">Mes compétences</h2>
+                <p class="text-xl text-center mb-16 text-gray-400 max-w-3xl mx-auto">Un aperçu des technologies et outils que je maîtrise</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="content-card p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-neon-blue">Data Science / ML</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Python (Pandas, Scikit-learn)</span>
+                                    <span class="text-brand-muted text-sm">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">R</span>
+                                    <span class="text-brand-muted text-sm">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">TensorFlow / Keras</span>
+                                    <span class="text-brand-muted text-sm">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">PyTorch</span>
+                                    <span class="text-brand-muted text-sm">65%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-neon-purple">Data Viz / BI</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Tableau</span>
+                                    <span class="text-brand-muted text-sm">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Power BI</span>
+                                    <span class="text-brand-muted text-sm">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Matplotlib / Seaborn</span>
+                                    <span class="text-brand-muted text-sm">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Plotly</span>
+                                    <span class="text-brand-muted text-sm">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-neon-pink">Bases de données / Cloud</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">SQL</span>
+                                    <span class="text-brand-muted text-sm">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">MongoDB (NoSQL)</span>
+                                    <span class="text-brand-muted text-sm">60%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">Azure</span>
+                                    <span class="text-brand-muted text-sm">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-brand-light">AWS</span>
+                                    <span class="text-brand-muted text-sm">50%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="section-padding animate-on-scroll interactive-bg">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white tracking-tighter gradient-text">Mes projets</h2>
+                <p class="text-xl text-center mb-16 text-gray-400 max-w-3xl mx-auto">Découvrez une sélection de mes projets les plus significatifs</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <a href="https://github.com/ByteScorpion/Anti-Spoofing-Face-Recognition-Attendance-System-APP/blob/main/README.md" target="_blank" class="project-card block p-6">
+                        <div class="relative overflow-hidden">
+                            <img src="files/project1.jpg" 
+                                 alt="Projet 1" 
+                                 class="rounded-xl mb-4 w-full h-48 object-cover">
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-white mb-2">Anti-Spoofing Face Recognition Attendance System APP</h3>
+                            <span class="bg-neon-blue/20 text-neon-blue text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2024</span>
+                        </div>
+                        <p class="text-brand-muted mb-4">A robust face recognition attendance system with anti-spoofing capabilities..</p>
+                        <div class="flex flex-wrap gap-2 text-sm">
+                            <span class="bg-brand-elevated text-neon-blue px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-brand-elevated text-neon-purple px-3 py-1 rounded-full">Machine Learning</span>
+                            <span class="bg-brand-elevated text-neon-pink px-3 py-1 rounded-full">Deep Learning</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/ByteScorpion/Shiny_Dashboard_Attendance_Data_Analysis/blob/main/README.md" target="_blank" class="project-card block p-6">
+                        <div class="relative overflow-hidden">
+                            <img src="/files/project2.gif" 
+                                 alt="Projet 2" 
+                                 class="rounded-xl mb-4 w-full h-48 object-cover">
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-white mb-2">Shiny dashboard application for analyzing Attendance Data</h3>
+                            <span class="bg-neon-blue/20 text-neon-blue text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2024</span>
+                        </div>
+                        <p class="text-brand-muted mb-4">Interactive dashboard application built with Shiny for analyzing attendance data.</p>
+                        <div class="flex flex-wrap gap-2 text-sm">
+                            <span class="bg-brand-elevated text-neon-blue px-3 py-1 rounded-full">R Progamming language</span>
+                            <span class="bg-brand-elevated text-neon-purple px-3 py-1 rounded-full">Rstudio</span>
+                            <span class="bg-brand-elevated text-neon-green px-3 py-1 rounded-full">Shiny</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/ByteScorpion/Project-Entry-Hub/blob/main/README.md" target="_blank" class="project-card block p-6">
+                        <div class="relative overflow-hidden">
+                            <img src="/files/project3.png" 
+                                 alt="Projet 3" 
+                                 class="rounded-xl mb-4 w-full h-48 object-cover">
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-white mb-2">Project Entry Hub</h3>
+                            <span class="bg-neon-blue/20 text-neon-blue text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="text-brand-muted mb-4">web application designed to help engineering companies organize and manage their technical project database with advanced filtering capabilities.</p>
+                        <div class="flex flex-wrap gap-2 text-sm">
+                            <span class="bg-brand-elevated text-neon-orange px-3 py-1 rounded-full">HTML</span>
+                            <span class="bg-brand-elevated text-neon-blue px-3 py-1 rounded-full">CSS</span>
+                            <span class="bg-brand-elevated text-neon-green px-3 py-1 rounded-full">NODE JS</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="https://github.com/ByteScorpion?tab=repositories" target="_blank" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 inline-flex items-center magnetic-btn ">
+                        Voir tous les projets
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-padding animate-on-scroll interactive-bg">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white tracking-tighter gradient-text">Mon expérience</h2>
+                <p class="text-xl text-center mb-16 text-gray-400 max-w-3xl mx-auto">Parcourez mon parcours professionnel et académique</p>
+                
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-8 text-white flex items-center">
+                            <span class="bg-neon-blue/20 text-neon-blue p-3 rounded-full mr-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </span>
+                            Expérience professionnelle
+                        </h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item mb-12 animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="text-xl font-bold text-white"> Data Analyst/Analyste des Ventes</h4>
+                                        <span class="bg-neon-green/20 text-neon-green text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">Jan 2025 - Jul 2025</span>
+                                    </div>
+                                    <p class="text-lg text-neon-blue font-semibold mb-3">SARL Maouda Distribution</p>
+                                    <p class="text-gray-400 mb-4"></p>
+                                    <ul class="text-gray-400 space-y-2">
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-neon-blue mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>Analyse des ventes pour identifier des tendances et opportunités
+ d’amélioration des performances commerciales. </span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-neon-blue mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>Préparation de rapports stratégiques pour les prises de décision.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item mb-12 animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="text-xl font-bold text-white">Stagaire en Deep Learning/Analyse de Données </h4>
+                                        <span class="bg-neon-green/20 text-neon-green text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">Fév 2024 - Mai 2024</span>
+                                    </div>
+                                    <p class="text-lg text-neon-purple font-semibold mb-3">New Digital Way </p>
+                                    <p class="text-gray-400 mb-4"> </p>
+                                    <ul class="text-gray-400 space-y-2">
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-neon-purple mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>Développement d’un système de gestion de présence basé sur la
+ reconnaissance faciale, utilisant des techniques avancées de Deep
+ Learning.</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <svg class="w-4 h-4 text-neon-purple mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>Mise à disposition d’outils analytiques pour aider les équipes de
+ management à prendre des décisions éclairées en matière de suivi et
+ d’optimisation des ressources humaines.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="text-xl font-bold text-white">Stagiaire en Deep Learning</h4>
+                                        <span class="bg-neon-green/20 text-neon-green text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">Jul 2023 - Août 2023</span>
+                                    </div>
+                                    <p class="text-lg text-neon-pink font-semibold mb-3">Icosnet </p>
+                                    <p class="text-gray-400 mb-4">Développement d’un modèle de détection de visage en temps réel
+ pour contrer la fraude (Anti-Spoofing) en vision par ordinateur.</p>
+                                    <ul class="text-gray-400 space-y-2">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-8 text-white flex items-center">
+                            <span class="bg-neon-green/20 text-neon-green p-3 rounded-full mr-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"></path>
+                                </svg>
+                            </span>
+                            Formation
+                        </h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item mb-12 animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="text-xl font-bold text-white">Master 2 Mathématiques & Apprentissage Statistique (En cours)</h4>
+                                        <span class="bg-neon-purple/20 text-neon-purple text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2025 - 2026</span>
+                                    </div>
+                                    <p class="text-lg text-neon-blue font-semibold mb-3">Université Paris Saclay</p>
+                                    <p class="text-gray-400 mb-4">Formation de haut niveau en statistiques, machine learning et analyse de données.</p>
+                                    <ul class="text-gray-400 space-y-2">
+                                            
+                                        </li>
+                                        <li class="flex items-start">
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item mb-12 animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="text-xl font-bold text-white">Master 2 Statistique & Data science</h4>
+                                        <span class="bg-neon-purple/20 text-neon-purple text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2019 - 2024</span>
+                                    </div>
+                                    <p class="text-lg text-neon-purple font-semibold mb-3">École Nationale Supérieure de statistique et économie appliquée</p>
+                                    <p class="text-gray-400 mb-4">Formation fondamentale en mathématiques, statistiques et programmation.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item animate-on-scroll">
+                                <div class="content-card p-6 rounded-2xl">
+                                    <h4 class="text-xl font-bold text-white mb-4">Certifications</h4>
+                                    
+                                    <div class="mb-4">
+                                        <div class="flex justify-between items-start mb-1">
+                                            <h5 class="text-neon-pink font-medium">Machine Learning Specialization - By Standford University</h5>
+                                            <span class="bg-neon-pink/20 text-neon-pink text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2024</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">Coursera</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="flex justify-between items-start mb-1">
+                                            <h5 class="text-neon-pink font-medium">Analyse de données Google Certificat Professionnel - By Google</h5>
+                                            <span class="bg-neon-pink/20 text-neon-pink text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">2023</span>
+                                        </div>
+                                        <p class="text-gray-400 text-sm">Coursera</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding animate-on-scroll interactive-bg">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white tracking-tighter gradient-text">Contactez-moi</h2>
+                <p class="text-xl mb-16 text-gray-400 max-w-2xl mx-auto">
+                    Vous avez un projet en tête ou souhaitez simplement échanger sur la data ? N'hésitez pas à me contacter !
+                </p>
+
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <a href="mailto:akramsaidani66@gmail.com" class="content-card p-8 flex flex-col items-center justify-center transition-all duration-300 transform hover:scale-105 hover:bg-neon-blue/10">
+                        <div class="bg-neon-blue/20 text-neon-blue p-4 rounded-full mb-4 magnetic-btn">
+                            <i class="fas fa-envelope fa-2x"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">E-mail</h4>
+                        <p class="text-brand-muted">akramsaidani66@gmail.com</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akram-saidani-359977317/" target="_blank" class="content-card p-8 flex flex-col items-center justify-center transition-all duration-300 transform hover:scale-105 hover:bg-neon-purple/10">
+                        <div class="bg-neon-purple/20 text-neon-purple p-4 rounded-full mb-4 magnetic-btn">
+                            <i class="fab fa-linkedin-in fa-2x"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">LinkedIn</h4>
+                        <p class="text-brand-muted">/in/Akram-Saidani...</p>
+                    </a>
+                    <a href="https://github.com/ByteScorpion" target="_blank" class="content-card p-8 flex flex-col items-center justify-center transition-all duration-300 transform hover:scale-105 hover:bg-neon-pink/10">
+                        <div class="bg-neon-pink/20 text-neon-pink p-4 rounded-full mb-4 magnetic-btn">
+                            <i class="fab fa-github fa-2x"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">GitHub</h4>
+                        <p class="text-brand-muted">/ByteScorpion</p>
+                    </a>
+                    <a href="tel:+33751593246" class="content-card p-8 flex flex-col items-center justify-center transition-all duration-300 transform hover:scale-105 hover:bg-neon-green/10">
+                        <div class="bg-neon-green/20 text-neon-green p-4 rounded-full mb-4 magnetic-btn">
+                            <i class="fas fa-phone fa-2x"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Téléphone</h4>
+                        <p class="text-brand-muted">+33 7 59 85 36 05</p>
+                    </a>
+                    <a href="#" class="content-card p-8 flex flex-col items-center justify-center transition-all duration-300 transform hover:scale-105 hover:bg-neon-orange/10">
+                        <div class="bg-neon-orange/20 text-neon-orange p-4 rounded-full mb-4 magnetic-btn">
+                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Adresse</h4>
+                        <p class="text-brand-muted">Paris, France</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 mt-20 text-center text-brand-muted border-t border-brand-elevated/50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white">Akram Saidani</h2>
+                    <p class="text-gray-400">Data Scientist / Data Analyst</p>
+                </div>
+                
+                <div class="flex space-x-6">
+            <a href="https://www.linkedin.com/in/akram-saidani-359977317/" target="_blank" class="text-brand-muted hover:text-neon-blue transition-colors duration-300 magnetic-btn">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+            <a href="https://github.com/ByteScorpion" target="_blank" class="text-brand-muted hover:text-neon-purple transition-colors duration-300 magnetic-btn">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+            <a href="mailto:akramsaidani66@gmail.com" class="text-brand-muted hover:text-neon-pink transition-colors duration-300 magnetic-btn"><i class="fas fa-envelope fa-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">© 2025 Akram Saidani. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const interactiveElements = document.querySelectorAll('a, button, .magnetic-btn, .project-card, .card-3d, .hero-image-container');
+
+        window.addEventListener('mousemove', e => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            cursor.style.opacity = '1';
+            cursorFollower.style.opacity = '1';
+        });
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+            
+            el.addEventListener('mousedown', () => {
+                cursor.classList.add('click');
+                cursorFollower.classList.add('click');
+            });
+            
+            el.addEventListener('mouseup', () => {
+                cursor.classList.remove('click');
+                cursorFollower.classList.remove('click');
+            });
+        });
+
+        
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('-translate-y-full');
+            mobileMenu.classList.toggle('translate-y-0');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-dark/80', 'backdrop-blur-lg', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-brand-dark/80', 'backdrop-blur-lg', 'shadow-lg');
+            }
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach(el => observer.observe(el));
+        
+      
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero-title, .hero-subtitle, .hero-bio, .hero-buttons, .hero-image').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+        
+        
+        const parallaxElements = document.querySelectorAll('.parallax-img');
+        window.addEventListener('scroll', () => {
+            let scrollY = window.scrollY;
+            parallaxElements.forEach(el => {
+                el.style.transform = `translateY(${scrollY * 0.05}px)`;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
