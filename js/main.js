@@ -101,8 +101,15 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.focus();
   }
 
-  menuToggle.addEventListener('click', openMenu);
+  menuToggle.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('is-open')) closeMenu();
+    else openMenu();
+  });
   menuClose.addEventListener('click', closeMenu);
+
+  mobileMenu.addEventListener('click', e => {
+    if (e.target === mobileMenu) closeMenu();
+  });
 
   mobileMenu.querySelectorAll('.mobile-menu__link').forEach(link => {
     link.addEventListener('click', closeMenu);
