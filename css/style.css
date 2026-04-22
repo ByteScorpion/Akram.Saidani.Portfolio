@@ -724,11 +724,46 @@ ul, ol { list-style: none; }
     padding-bottom: 1.5rem;
   }
 
+  .hero__grid {
+    padding: 2rem 1rem 1rem;
+    gap: 1.75rem;
+  }
+
   .hero__scroll {
     position: static;
     margin: 0 auto 1.5rem;
     transform: none;
     animation: none;
+  }
+
+  .terminal__body {
+    min-height: 200px;
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .lm__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+  }
+
+  .lm__header {
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .lm__cmd {
+    max-width: 140px;
+  }
+
+  .hero__name-line {
+    font-size: clamp(3rem, 18vw, 5rem);
   }
 }
 
